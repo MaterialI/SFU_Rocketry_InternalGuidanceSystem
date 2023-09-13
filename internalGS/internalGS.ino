@@ -87,9 +87,9 @@ void gnssThread()
     I2CMutex.lock();
     latitude = myGNSS.getLatitude();
     longitude = myGNSS.getLongitude();
-    groundSpeed= (float)(myGNSS.getGroundSpeed());
+    //groundSpeed= (float)(myGNSS.getGroundSpeed());
     I2CMutex.unlock();
-    
+    //delay(100);
   }
 }
 
@@ -134,8 +134,8 @@ void setup()
     Serial.println("Unable to detect GNSS module!");
     //while (1);
   }
-  //accelThr = threads.addThread(accelThread);
-  //baroThr = threads.addThread(baroThread);
+  accelThr = threads.addThread(accelThread);
+  baroThr = threads.addThread(baroThread);
   gnssThr = threads.addThread(gnssThread);
 }
 
