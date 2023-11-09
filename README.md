@@ -1,7 +1,7 @@
 ﻿# SFU_Rocketry_InternalGuidanceSystem
 ##The rev 1.0 \
 Features: \
-###Path construction \
+###Path construction 
 > Constructs a line in small areas 200 X 200 km between the current location of system and the final target \
 ###Path following \
 > Uses PID and distance calculation in spherical coordinates and finds the XTE (Cross Track Error) from the path. After that it adjusts the steering to follow it. \
