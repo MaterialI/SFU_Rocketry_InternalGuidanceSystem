@@ -1,4 +1,4 @@
-﻿# SFU_Rocketry_InternalGuidanceSystem
+﻿# SFU_Rocketry_Recovery_System
 ##The rev 1.0 \
 Features: \
 ###Path construction 
