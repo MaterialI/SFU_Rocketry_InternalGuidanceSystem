@@ -30,6 +30,7 @@
 
 // communication pins/ i2c adresses.
 #define FEEDBACK_PIN 7
+#define BUZZER_PIN 22
 #define SERVO_PIN 8
 #define IMU_ADDRESS 0x68
 
@@ -358,30 +359,37 @@ void gnssThread() // uses library to get the coordinates in (long, lat) format. 
 
 // state machine
 
-// bool detectFall()
-// {
-//   float a[3] = {accX, accY, accZ};
-//   float pAcc = cbrt(pow(a[0], 3) + pow(a[1], 3) +pow(a[2], 3));
-//   if(vspeed<-1.0 && pAcc < 0.1 && gnssVspeed < -1.0)
-//   {
-//     state = DESCEND_STATE;
-//   }
-// }
+bool detectFall()
+{
+  float a[3] = {accX, accY, accZ};
+  float pAcc = cbrt(pow(a[0], 3) + pow(a[1], 3) +pow(a[2], 3));
+  if(vspeed<-1.0 && pAcc < 0.1 && gnssVspeed < -1.0)
+  {
+    state = DESCEND_STATE;
+    return true;
+  }
+  return false;
+}
 
-// void stateAction() //todo finish the state machine, develop descend state machine.
-// {
-//   switch(state)
-//   {
-//     case BOOTUP_STATE:
-//     {
-//       Serial.println("The system has not finished its bootup sequence, restart the system and check whether sensors are connected.")
-//     } break;
-//     case ASCEND_STATE:
-//     {
-//       detectFall();
-//     } break;
-//   };
-// }
+void stateAction() //todo finish the state machine, develop descend state machine.
+{
+  switch(state)
+  {
+    case BOOTUP_STATE:
+    {
+      Serial.println("The system has not finished its bootup sequence, restart the system and check whether sensors are connected.");
+    } break;
+    case ASCEND_STATE:
+    {
+      detectFall();
+    } break;
+    case DESCEND_STATE:
+    {
+      gnssThread();
+      baroThread();
+    }break;
+  };
+}
 
 void setup()
 {
@@ -391,6 +399,9 @@ void setup()
   Wire.begin();
   delay(2000);
 
+
+
+  pinMode(BUZZER_PIN, OUTPUT);
   // set the setting for IMU module
   MPU9250Setting setting;
   setting.accel_fs_sel = ACCEL_FS_SEL::A16G;
@@ -437,8 +448,13 @@ void setup()
   else
   {
     Serial.println("Unable to detect GNSS module!");
-    // if(!TEST) //if not test, stall the execution.
-    //   while (1);
+    while(true)
+    {
+      digitalWrite(BUZZER_PIN, HIGH); // sets the digital pin 13 on
+      delay(1000);            // waits for a second
+      digitalWrite(BUZZER_PIN, LOW);  // sets the digital pin 13 off
+      delay(1000); 
+    }
   }
 
   // Call acceleromter thread
