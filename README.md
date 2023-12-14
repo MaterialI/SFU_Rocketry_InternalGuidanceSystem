@@ -6,7 +6,7 @@ Features:
 ### Path following 
 > Uses PID and distance calculation in spherical coordinates and finds the XTE (Cross Track Error) from the path. After that it adjusts the steering to follow it. 
 ### Course correction 
-> Uses PID and course error to make the steering input and correct the heading 
+> Uses PID and course error to make the steering input and correct the heading.
 ### State Machine 
 > Allows the system to recognize the in which stage of the flight it is and does the necessary actions.
 > There are four states <ol>  Ascend <li>Descend </li> <li>Landing </li> <li>On the ground </li> </ol>
