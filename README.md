@@ -9,6 +9,6 @@ Features:
 > Uses PID and course error to make the steering input and correct the heading 
 ### State Machine 
 > Allows the system to recognize the in which stage of the flight it is and does the necessary actions.
-> There are four states <ol>  <li>Ascend </li> <li>Descend </li> <li>Landing </li> <li>On the ground </li> </ol>
+> There are four states <ol>  Ascend <li>Descend </li> <li>Landing </li> <li>On the ground </li> </ol>
 ## Telemetry recording 
 > TODO 
