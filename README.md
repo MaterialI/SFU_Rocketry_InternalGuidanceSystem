@@ -1,13 +1,14 @@
 ﻿# SFU_Rocketry_Recovery_System
-## The rev 1.0 \
+## The rev 1.0  
 Features: 
 ### Path construction 
-> Constructs a line in small areas 200 X 200 km between the current location of system and the final target 
+> Constructs a line in small areas 200 X 200 km between the current location of system and the final target  
 ### Path following 
 > Uses PID and distance calculation in spherical coordinates and finds the XTE (Cross Track Error) from the path. After that it adjusts the steering to follow it. 
 ### Course correction 
 > Uses PID and course error to make the steering input and correct the heading 
 ### State Machine 
-> Allows the system to recognize the in which stage of the flight it is and does the necessary actions. 
+> Allows the system to recognize the in which stage of the flight it is and does the necessary actions.
+> There are four states 1. Ascend  2. Descend 3. Landing  4. On the ground
 ## Telemetry recording 
 > TODO 
