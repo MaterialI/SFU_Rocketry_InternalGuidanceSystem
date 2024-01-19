@@ -11,4 +11,8 @@ Features:
 > Allows the system to recognize the in which stage of the flight it is and does the necessary actions.
 > There are four states <ol>  Ascend <li>Descend </li> <li>Landing </li> <li>On the ground </li> </ol>
 ## Telemetry recording 
-> TODO 
+> Performs recording of the data received from sensors. Stores it in a CSV (Comma Separated Value) format.
+
+## Sensor Suite
+![alt text](https://github.com/MaterialI/SFU_Rocketry_Recovery_System/edit/main/teensy-4.1-cover.jpg?raw=true)
+
