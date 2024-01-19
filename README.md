@@ -14,5 +14,5 @@ Features:
 > Performs recording of the data received from sensors. Stores it in a CSV (Comma Separated Value) format.
 
 ## Sensor Suite
-![alt text](https://github.com/MaterialI/SFU_Rocketry_Recovery_System/edit/main/internalGS/teensy-4.1-cover.jpg?raw=true)
+![alt text](https://github.com/MaterialI/SFU_Rocketry_Recovery_System/edit/main/internalGS/teensy-4.1-cover.jpeg?raw=true)
 
